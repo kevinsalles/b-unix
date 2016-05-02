@@ -3,7 +3,7 @@
  */
 
 var cmdSys = require('./cmd_sys');
-var time = require('./times');
+var time = require('./time');
 var fs = require("fs");
 
 var oldBackups;

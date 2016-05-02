@@ -4,6 +4,7 @@
 const readline = require('readline');
 var promise = require('bluebird');
 var cmdSys = require('./cmd_sys');
+var fs = require("fs");
 
 const r = readline.createInterface({
     input: process.stdin,
@@ -41,5 +42,9 @@ exports.start = function(setup ){
 };
 
 exports.createFile = function() {
-
+    if(!fs.exists('b-unix_recovery.js')) {
+        var file = "var bunix = require('b-unix');\n\n" +
+            "bunix.recovery('./setup.json');";
+        fs.appendFile('b-unix_recovery.js', file);
+    }
 };

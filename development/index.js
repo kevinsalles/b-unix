@@ -26,5 +26,9 @@ exports.start = function(setupFile) {
     setup.init(setupFile, function(){backup.start(setup);});
 };
 
+exports.recovery = function(setupFile){
+    setup.init(setupFile, function(){recovery.start(setup);});
+};
+
 
 

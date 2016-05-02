@@ -1,6 +1,6 @@
 {
   "name": "b-unix",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "bluebird": "^3.3.5"
   }
