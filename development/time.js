@@ -13,9 +13,9 @@ exports.timer = function(h, m, s){
 exports.date = function(){
     var temp = new Date();
     return (temp.getDate().toString() + "-" +
-        temp.getMonth().toString() + "-" +
-        temp.getFullYear().toString() + "_" +
-        temp.getHours().toString() + "-" +
-        temp.getMinutes().toString() + "-" +
-        temp.getSeconds().toString());
+    temp.getMonth().toString() + "-" +
+    temp.getFullYear().toString() + "_" +
+    temp.getHours().toString() + "-" +
+    temp.getMinutes().toString() + "-" +
+    temp.getSeconds().toString());
 };
