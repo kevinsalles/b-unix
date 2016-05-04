@@ -10,28 +10,19 @@ var fs = require("fs");
 
 var handleException = function(msg){
     fs.appendFile('BackupService_error.log',msg);
-    console.error(msg);
-    console.error('READ THE BackupService_error.log');
-    setTimeout(function(){process.exit(-1);},1000);
+    console.error('\n\nREAD THE BackupService_error.log');
+    throw new Error(msg);
 };
 
-exports.process = function(command){
+exports.process = function(command, callback){
     exec(command, function(e,out,err){
         if(e !== null) {
             handleException(time.date() + ":\n" + e + '\n');
         }
         if(out !== '')
             console.log(out);
-    });
-};
 
-exports.processC = function(command, callback){
-    exec(command, function(e,out,err){
-        if(e !== null) {
-            handleException(time.date() + ":\n" + e + '\n');
-        }
-        if(out !== '')
-            console.log(out);
-        callback();
+        if(callback != undefined)
+            callback();
     });
 };

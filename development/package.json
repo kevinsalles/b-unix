@@ -1,6 +1,11 @@
 {
   "name": "b-unix",
-  "version": "0.0.3",
+  "version": "0.0.5",
+  "keywords": "backup, automatic, automatically, linux",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/npm/npm.git"
+  },
   "dependencies": {
     "bluebird": "^3.3.5"
   }

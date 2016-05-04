@@ -1,9 +1,44 @@
-### Backup Service ###
+File backup service under Linux.
+It's a service which allows to do automatically backup files between servers.
+However, there is also a recovery system feature.
 
-Service de backup de fichier sous linux.
-Projet Javascript.
+### Getting started ###
 
-### Configuration  du fichier setup.json ###
+The first step, don't forget to activate ssh connection between servers.<br>
+For checked, try this command line on a linux console:
+ 
+    sshpass -p "password" ssh user@host  
+then accept typing yes.
+
+It's very important that this command works because b-unix works this way.<br>
+If you have a problem with **sshpass**, install it on Linux with the command line :
+
+    apt-get install sshpass
+
+Install b-unix : 
+    
+    npm install b-unix
+    
+And : 
+    
+    var bunix = require("b-unix");
+    
+You must include a file json like setup.json for all servers parameters.<br>
+See 'setup.json file configuration' section for the configuration.<br>
+After configuring the file, you can start the automatic backup on your application including in your code:
+
+    bunix.start("./setup.json");
+    
+and that's all.
+
+When it starts for the first time, the 'b-unix_recovery.js' file is creates in the current directory<br>
+You can recovers a backup file executing directly the command line in directory.
+
+    nodejs b-unix_recovery.js
+    
+It use the file configuration for recovers the backup files.
+
+### setup.json file configuration ###
 
     {
         "number_backups":"backups number in the time",

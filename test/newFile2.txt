@@ -1,12 +1,3 @@
-,
-    {
-      "name":"test2",
-      "user_dest":"root",
-      "pwd_dest":"123456",
-      "host":"192.168.219.133",
-      "path_src":"./",
-      "path_copy":"./bck2/",
-      "path_dest":"../home/mint2/Bureau/BackupMint1/bck/",
-      "filename":"newFile2",
-      "extension":".txt"
-    }
+Ca marche
+
+

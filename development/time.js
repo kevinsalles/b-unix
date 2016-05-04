@@ -6,7 +6,6 @@ exports.timer = function(h, m, s){
     var seconds 	= 1000*s;
     var minutes 	= 60000*m;
     var hours 	    = 3600000*h;
-
     return (hours+minutes+seconds);
 };
 

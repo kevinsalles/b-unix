@@ -18,19 +18,19 @@ var backup = function(){
         var date = time.date();
         newBackups[n][i] = setup.filename(n) + "_" + date + setup.extension(n);
         var command = 'cp ' + setup.path_src(n) + setup.filename(n) + setup.extension(n) +" "+ setup.path_copy(n) + newBackups[n][i];
-        cmdSys.process(command);
+        cmdSys.process(command,null);
         if (oldBackups[n][i] != '') {
             command = 'rm -f ' + setup.path_copy(n) + oldBackups[n][i];
-            cmdSys.process(command);
+            cmdSys.process(command,null);
             command = 'sshpass -p ' + setup.pwd_dest(n) + ' scp -r ' + setup.path_copy(n) + newBackups[n][i] + ' ' + setup.user_dest(n) + '@' + setup.host(n) + ':' + setup.path_dest(n);
-            cmdSys.process(command);
+            cmdSys.process(command,null);
             command = 'sshpass -p ' + setup.pwd_dest(n) + ' ssh ' + setup.user_dest(n) + '@' + setup.host(n) + ' rm -f ' + setup.path_dest(n) + oldBackups[n][i];
-            cmdSys.process(command);
+            cmdSys.process(command,null);
             fs.appendFile('BackupService.log', "Backup effectué : " + newBackups[n][i] + "\n");
         }
         else {
             command = 'sshpass -p ' + setup.pwd_dest(n) + ' scp -r ' + setup.path_copy(n) + newBackups[n][i] + ' ' + setup.user_dest(n) + '@' + setup.host(n) + ':' + setup.path_dest(n);
-            cmdSys.process(command);
+            cmdSys.process(command,null);
             fs.appendFile('BackupService.log', "Backup effectué : " + newBackups[n][i] + "\n");
         }
         oldBackups[n][i] = newBackups[n][i];
